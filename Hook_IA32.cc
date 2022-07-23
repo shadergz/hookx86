@@ -92,7 +92,7 @@ uintptr_t Hook32Func(uintptr_t targetFunc, uintptr_t NewFunc, int32_t copyContex
     for (int32_t index = 0; index < copyContextSize; index++)
         printf("%#x ", ((uint8_t*)targetFunc)[index]);
     puts("");
-    printf("%p: jmp %#x; ", targetFunc, *(uint32_t*)(targetFunc + 1));
+    printf("%p: jmp %#x (relative); ", targetFunc, *(uint32_t*)(targetFunc + 1));
     for (int32_t index = 0; index < copyContextSize - JMPInstFixedSize; index++)
         printf("%p: nop; ", targetFunc, ((uint8_t*)targetFunc)[index]);
     puts("");
@@ -109,7 +109,7 @@ int main(void)
     func6Ptr = (FUNCWITH6PARAMETERS_t)Hook32Func((uintptr_t)funcWith6Parameters, 
         (uintptr_t)newFuncWith6Parameters, 7);
 
-    /* This function has been hooked */
+    /* func function has been hooked */
     func(10);
 
     func(120);

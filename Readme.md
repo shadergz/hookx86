@@ -10,7 +10,7 @@ It's a hook function for x86 based architectures
 
 ![Image](hook.png)
 
-## Deatails
+## Details
 
 - Used method: splicing (Trampoline)
 - Works on x64 machines (with compatibility mode)

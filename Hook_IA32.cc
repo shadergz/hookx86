@@ -56,6 +56,7 @@ uintptr_t Hook32Func(uintptr_t targetFunc, uintptr_t NewFunc, int32_t copyContex
 
     uint8_t JMPMachineCode[JMPInstFixedSize];
 
+    /* https://c9x.me/x86/html/file_module_x86_id_147.html */
     JMPMachineCode[0] = 0xe9;
 
     void* trampoline = mmap(nullptr, sysconf(_SC_PAGE_SIZE), PROT_READ | PROT_WRITE | PROT_EXEC, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);

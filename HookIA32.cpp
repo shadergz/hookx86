@@ -29,7 +29,7 @@ void newFunc(int funcNumber)
 volatile int funcWith6Parameters(int x, int y, int z, const char *dest, const char *src, size_t count)
 {
     printf("X, Y, Z is equal to {%d, %d, %d}\n", x, y, z);
-    printf("dest, src, count is equal to {%s, %s, %ld}\n", dest, src, count);
+    printf("dest, src, count is equal to {%s, %s, %zu}\n", dest, src, count);
 
     return x + y + z;
 }
@@ -38,7 +38,7 @@ int newFuncWith6Parameters(int x, int y, int z, const char *dest, const char *sr
 {
     puts("\e[32mIntercepting \'funcWith6Parameters\' function\e[0m");
     printf("X, Y, Z is equal to {%d, %d, %d}\n", x, y, z);
-    printf("dest, src, count is equal to {%s, %s, %ld}\n", dest, src, count);
+    printf("dest, src, count is equal to {%s, %s, %zu}\n", dest, src, count);
 
     puts("\e[32mCalling the original function\e[0m");
 
@@ -88,13 +88,13 @@ uintptr_t Hook32Func(uintptr_t targetFunc, uintptr_t NewFunc, int32_t copyContex
 
     memset((void*)(targetFunc + JMPInstFixedSize), 0x90, copyContextSize - JMPInstFixedSize);
 
-    printf("Trampoline patch data for (%p) function: ", targetFunc);
+    printf("Trampoline patch data for (%u) function: ", targetFunc);
     for (int32_t index = 0; index < copyContextSize; index++)
         printf("%#x ", ((uint8_t*)targetFunc)[index]);
     puts("");
-    printf("%p: jmp %#x (relative); ", targetFunc, *(uint32_t*)(targetFunc + 1));
+    printf("%u: jmp %#x (relative); ", targetFunc, *(uint32_t*)(targetFunc + 1));
     for (int32_t index = 0; index < copyContextSize - JMPInstFixedSize; index++)
-        printf("%p: nop; ", targetFunc, ((uint8_t*)targetFunc)[index]);
+        printf("%u: nop; ", ((uint8_t*)targetFunc)[index]);
     puts("");
 
     return (uintptr_t)trampoline;

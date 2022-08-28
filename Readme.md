@@ -1,4 +1,4 @@
-# Hook_IA32
+# HookIA32
 
 It's a hook function for x86 based architectures
 

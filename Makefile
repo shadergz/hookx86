@@ -1,11 +1,13 @@
-all: Hook_IA32
+CXX=g++
 
-Hook_IA32: Hook_IA32.cc
+all: HookIA
+
+HookIA: HookIA32.cpp
 	$(CXX) -g -m32 -msse -o $@ $<
 
-run: Hook_IA32
-	./Hook_IA32
+run: HookIA
+	./$<
 
 clean:
-	rm -f Hook_IA32
+	rm -f HookIA
 

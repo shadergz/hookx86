@@ -8,7 +8,7 @@ It's a hook function for x86 based architectures
 
 ## The program output
 
-![Image](hook.png)
+![Image](hook.jpeg)
 
 ## Details
 
@@ -20,6 +20,10 @@ It's a hook function for x86 based architectures
 ## More information
 
 - [Hooking](https://en.wikipedia.org/wiki/Hooking)
+
+## Required packages to compile:
+
+- gcc-multilib and g++-multilib
 
 ## How to compile?
 

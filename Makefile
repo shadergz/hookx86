@@ -1,13 +1,13 @@
 CXX=g++
 
-all: HookIA
+all: hookcisc
 
-HookIA: HookIA32.cpp
+hookcisc: HookCISC_32.cpp
 	$(CXX) -g -m32 -msse -o $@ $<
 
-run: HookIA
+run: hookcisc
 	./$<
 
 clean:
-	rm -f HookIA
+	rm -f hookcisc
 

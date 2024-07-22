@@ -1,6 +1,6 @@
-# HookCISC-32
+# hookcisc-32
 
-It's a hook system functions for x86 based CPU architectures
+It's a hook function for x86 based architectures
 
 ## How this works?
 

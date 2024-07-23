@@ -2,7 +2,7 @@ CXX=g++
 
 all: hookcisc
 
-hookcisc: HookCISC_32.cpp
+hookcisc: hook.cpp
 	$(CXX) -g -m32 -msse -o $@ $<
 
 run: hookcisc
